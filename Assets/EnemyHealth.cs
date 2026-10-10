@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int health = 100;
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        
+        health -= damage;
+
+        Debug.Log("Enemy Health: " + health);
+
+        if (health <= 0)
+        {
+            Debug.Log("Enemy Died!");
+            Destroy(gameObject);
+        }
     }
 }
